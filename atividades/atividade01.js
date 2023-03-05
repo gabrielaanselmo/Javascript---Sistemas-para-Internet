@@ -56,7 +56,7 @@ for (let i = 0; i < pessoas.length; i++) {
 let mediaAlturaHomens = somaAlturaHomens / (pessoas.length - qtdMulheres);
 
 // Exibe os resultados
-console.log("Maior altura: " + maiorAltura);
-console.log("Menor altura: " + menorAltura);
-console.log("Média de altura dos homens: " + mediaAlturaHomens.toFixed(2));
-console.log("Número de mulheres: " + qtdMulheres);
+alert("Maior altura: " + maiorAltura);
+alert("Menor altura: " + menorAltura);
+alert("Média de altura dos homens: " + mediaAlturaHomens.toFixed(2));
+alert("Número de mulheres: " + qtdMulheres);
