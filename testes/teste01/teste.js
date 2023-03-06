@@ -1,42 +1,14 @@
 let contador = 0;
-let alturas = [];
-let sexos = [];
-let maiorAltura = 0;
-let menorAltura = Number.MAX_VALUE;
-let somaAlturaHomens = 0;
+let alturaTotalHomens = 0;
 let quantidadeMulheres = 0;
+let maiorAltura = 0;
+let menorAltura = Infinity;
 
 while (contador < 15) {
-  let altura;
-  let sexo;
+  let altura = parseInt(prompt("Qual a sua altura em centímetros?"));
+  let sexo = prompt("Qual o seu sexo? (M ou F)").toUpperCase();
 
-  while (true) {
-    altura = prompt(`Qual é a altura da pessoa ${contador+1} em metros?`);
-    if (altura !== null && altura !== "" && !isNaN(altura)) {
-      break;
-    } else {
-      alert("Por favor, insira uma altura válida.");
-    }
-  }
-
-  while (true) {
-    sexo = prompt(`Qual é o sexo da pessoa ${contador+1}? Digite M para masculino ou F para feminino.`);
-    if (sexo !== null && sexo !== "") {
-      sexo = sexo.toUpperCase();
-      if (sexo === "M" || sexo === "F") {
-        break;
-      } else {
-        alert("Por favor, insira um sexo válido.");
-      }
-    } else {
-      alert("Por favor, insira um sexo.");
-    }
-  }
-
-  alturas.push(parseFloat(altura));
-  sexos.push(sexo);
-
-  // calcula a maior e menor altura
+  // armazena a maior e a menor altura
   if (altura > maiorAltura) {
     maiorAltura = altura;
   }
@@ -44,12 +16,12 @@ while (contador < 15) {
     menorAltura = altura;
   }
 
-  // calcula a soma das alturas dos homens para calcular a média depois
+  // calcula a média de altura entre os homens
   if (sexo === "M") {
-    somaAlturaHomens += parseFloat(altura);
+    alturaTotalHomens += altura;
   }
 
-  // calcula a quantidade de mulheres
+  // conta a quantidade de mulheres
   if (sexo === "F") {
     quantidadeMulheres++;
   }
@@ -57,12 +29,9 @@ while (contador < 15) {
   contador++;
 }
 
-// calcula a média de altura dos homens
-let mediaAlturaHomens = somaAlturaHomens / (contador - quantidadeMulheres);
+let mediaAlturaHomens = alturaTotalHomens / (contador - quantidadeMulheres);
 
-alert("Alturas: " + alturas);
-alert("Sexos: " + sexos);
-alert("Maior altura: " + maiorAltura);
-alert("Menor altura: " + menorAltura);
-alert("Média de altura dos homens: " + mediaAlturaHomens.toFixed(2));
-alert("Quantidade de mulheres: " + quantidadeMulheres);
+alert(`A maior altura registrada foi ${maiorAltura} cm.`);
+alert(`A menor altura registrada foi ${menorAltura} cm.`);
+alert(`A média de altura entre os homens é ${mediaAlturaHomens.toFixed(2)} cm.`);
+alert(`A quantidade de mulheres é ${quantidadeMulheres}.`);
